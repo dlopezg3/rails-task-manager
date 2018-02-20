@@ -1,9 +1,20 @@
 <h1>List of tasks</h1>
 
   <% @tasks.each do |task| %>
-        <form action="/action_page.php">
-          <input type="checkbox" name="completed" value="check" <%=  task.completed ? "checked" : "" %> >
-            <%= link_to task.title, task_path(task) %>
-          <br>
-        </form>
+    <form action="/action_page.php">
+      <div class="form-inline">
+        <input type="checkbox" name="completed" value="check" <%=  task.completed ? "checked" : "" %> >
+          <%= link_to task.title, task_path(task) %>
+        <br>
+        <div style="margin-left: 10px">
+          <%= link_to "|       delete", task_path(task),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %>
+        </div>
+      </div>
+    </form>
   <% end %>
+<div class="btn btn-danger">
+  <%= link_to "Add a new task", tasks_new_path %>
+</div>
+
