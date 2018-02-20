@@ -1,0 +1,6 @@
+<h1> <%= @task.title %>  </h1>
+  <h1>
+    <input type="checkbox" name="completed" value="check" <%=  @task.completed ? "checked" : "" %>  > <%= @task.completed ? "Task Completed" : "Task Pending" %>
+    <br>
+  </h1>
+<p>  <%= @task.details%> </p>
